@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoMeet - Location-Based Web3 Networking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="intro reveal">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1><strong>GeoMeet 🌍</strong></h1>
+            <p class="projects-subtitle">Location-based Web3 networking app — developed for the NTU x Base Web 3 Hackathon</p>
+        </header>
+
+        <section class="project-details reveal">
+            <h2>Overview</h2>
+            <p>GeoMeet is a mobile-first, location-based social workspace application built for the NTU x Base Web 3 Hackathon. It helps active professionals coordinate offline meetups by showing nearby colleagues on a map, checking availability for lunch or after-office drinks, and settling payments securely using Coinbase OnchainKit and the Base Network.</p>
+
+            <h2>✨ Key Features</h2>
+            <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem;">
+                <div class="item">
+                    <h3>📍 Real-time Location Map</h3>
+                    <p>Uses Leaflet and React-Leaflet to overlay interactive maps tracking nearby professionals with dynamic, real-time coordinate pins.</p>
+                </div>
+                <div class="item">
+                    <h3>🤝 Availability Matching</h3>
+                    <p>Filter connections by active statuses ('lunch', 'after-office', 'unavailable') to find matching, nearby colleagues.</p>
+                </div>
+                <div class="item">
+                    <h3>💳 Web3 & Onchain Payments</h3>
+                    <p>Integrates Coinbase OnchainKit, Wagmi, and Viem, allowing users to connect their Base wallets and send microtransactions using Base Pay.</p>
+                </div>
+                <div class="item">
+                    <h3>🔔 Real-time Notifications</h3>
+                    <p>Features active messaging overlays and real-time toast alerts for newly incoming chat messages and meetup invites.</p>
+                </div>
+            </div>
+
+            <h2>🗄️ Database Schema</h2>
+            <pre class="architecture-diagram" style="margin-bottom: 3rem;">
+-- Profiles table
+create table profiles (
+  id text primary key,
+  name text,
+  industry text,
+  role text,
+  food_preference text,
+  availability text check (availability in ('lunch','after-office', 'unavailable')),
+  lat double precision,
+  lng double precision,
+  contacts text[] default '{}'
+);
+
+-- Meetups table
+create table meetups (
+  id uuid primary key default gen_random_uuid(),
+  participants text[] not null,
+  type text check (type in ('lunch','after-office')),
+  start_time timestamptz default now(),
+  status text default 'ongoing',
+  feedback jsonb default '{}'
+);</pre>
+
+            <h2>📁 Project Structure</h2>
+            <pre class="architecture-diagram" style="margin-bottom: 3rem;">
+GeoMeet/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes & Edge Functions
+│   ├── components/        # GeoMap & MessagesPanel React components
+│   └── page.tsx          # Main Web client interface
+├── lib/                   # Utility libraries & Web3 clients
+├── public/               # Static assets
+└── package.json          # Dependencies & npm scripts</pre>
+
+            <h2>🛠 Technology Stack</h2>
+            <div class="tech-stack-list">
+                <span class="badge">Next.js 15</span>
+                <span class="badge">React 18</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Coinbase OnchainKit</span>
+                <span class="badge">Base Network</span>
+                <span class="badge">Wagmi & Viem</span>
+                <span class="badge">Supabase (PostgreSQL)</span>
+                <span class="badge">Upstash Redis</span>
+                <span class="badge">Leaflet Map Engine</span>
+                <span class="badge">React Query</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>All Rights Reserved.</span>
+            <span>2026</span>
+        </footer>
+    </div>
+
+    <script>
+        // Track cursor for ambient glow
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Scroll reveal animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
