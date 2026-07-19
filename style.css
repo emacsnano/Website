@@ -495,3 +495,67 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
 }
+
+/* Education Timeline */
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.5rem - 4.5px);
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  border: 2px solid var(--bg-color);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.timeline-meta {
+  margin-bottom: 0.25rem;
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-family: monospace;
+}
+
+.timeline-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.1rem;
+}
+
+.timeline-content .institution {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-content .details {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
