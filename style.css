@@ -634,3 +634,14 @@ footer {
   transform: translate(2px, -2px);
   color: #ffffff;
 }
+
+/* Subtitle Cycling Fade Styles */
+.fade-subtitle {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: inline-block;
+}
+
+.fade-subtitle.fade-out {
+  opacity: 0;
+  transform: translateY(-4px);
+}

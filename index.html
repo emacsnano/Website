@@ -13,8 +13,8 @@
         <header class="intro reveal">
             <h1><strong>Owen Yap</strong></h1>
             <p>
-                <em>Crafting unforgettable experiences.</em> Building polished software. Creating unique web
-                designs.
+                <em>Crafting unforgettable experiences.</em> <span id="cycling-subtitle" class="fade-subtitle">Building
+                    polished software.</span>
             </p>
         </header>
 
@@ -123,26 +123,7 @@
             <span>2026</span>
         </footer>
     </div>
-    <script>
-        // Track cursor for ambient glow
-        document.addEventListener('mousemove', (e) => {
-            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
-            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
-        });
-
-        // Scroll reveal animation observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.05
-        });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
+    <script src="index.js" defer></script>
 </body>
 
 </html>
