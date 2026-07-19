@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <header class="intro">
+        <header class="intro reveal">
             <h1><strong>Owen Yap</strong></h1>
             <p>
                 <em>Crafting unforgettable experiences.</em> Building polished software and creating unique web
@@ -18,7 +18,7 @@
             </p>
         </header>
 
-        <section class="projects-top">
+        <section class="projects-top reveal">
             <h2>Projects</h2>
             <p>My projects speak for themselves.</p>
             <div class="projects-grid">
@@ -37,7 +37,7 @@
             </div>
         </section>
 
-        <section class="about-section">
+        <section class="about-section reveal">
             <h2>About Me</h2>
             <p>I like playing games like Valorant, Delta Force. I enjoy reading Philosophy and Theology Books. I also
                 enjoy learning new things and experimenting with new technologies. I'm a big fan of music, especially
@@ -79,18 +79,38 @@
             <p>GCE O-Levels, Queensway Secondary School - 2020 - 2023</p>
         </section>
 
-        <section class="connect">
+        <section class="connect reveal">
             <h2>Connect</h2>
             <p>Reach me on <a href="https://www.linkedin.com/in/owen-yap1/">LinkedIn</a> or drop me an email at <a
-                    href="mailto:sureokyespls@gmail.com">sureokyespls@gmail.com</a>.</p>
-            <p>Check out my <a href="https://github.com/icetehpeng">GitHub</a> for more projects.</p>
+                    href="mailto:zexphr1219@gmail.com">zexphr1219@gmail.com</a>.</p>
+            <p>Check out my <a href="https://github.com/emacsnano">GitHub</a> for more projects.</p>
         </section>
 
-        <footer>
+        <footer class="reveal">
             <span>All Rights Reserved.</span>
             <span>2026</span>
         </footer>
     </div>
+    <script>
+        // Track cursor for ambient glow
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Scroll reveal animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 
 </html>
