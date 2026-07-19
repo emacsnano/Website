@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustLens - Misinformation Defense Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="intro reveal">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1><strong>TrustLens</strong></h1>
+            <p class="projects-subtitle">Community-Powered Misinformation Defense Platform — developed for the HomeHack Hackathon</p>
+        </header>
+
+        <section class="project-details reveal">
+            <h2>Overview</h2>
+            <p>TrustLens is a Chrome browser extension that leverages community collaboration to empower citizens against fake news in real time. The extension automatically detects when users visit news websites, fetches their community reliability rating from a REST API, and displays visual indicators on the page. Users can submit their own ratings directly through the extension interface.</p>
+
+            <h2>✨ Key Features</h2>
+            <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 3rem;">
+                <div class="item">
+                    <h3>🌐 Real-time Rating</h3>
+                    <p>Detects news domains automatically and retrieves community reliability scores on a 1-10 scale.</p>
+                </div>
+                <div class="item">
+                    <h3>👥 Crowdsourced Votes</h3>
+                    <p>Enables users to rate websites directly from the browser extension popup, feeding updates instantly to all users.</p>
+                </div>
+                <div class="item">
+                    <h3>⚡ Seamless Extension</h3>
+                    <p>Lightweight Chrome background worker and content scripts overlaying visual reliability indicators directly on web pages.</p>
+                </div>
+                <div class="item">
+                    <h3>🔌 Centralized API</h3>
+                    <p>Custom REST API backend designed to aggregate user votes, filter domains, and provide fast response endpoints.</p>
+                </div>
+            </div>
+
+            <h2>📊 Reliability Scale</h2>
+            <div class="projects-grid" style="grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 3rem;">
+                <div class="item" style="padding: 1rem; text-align: center; border-color: rgba(46, 204, 113, 0.4);">
+                    <h4 style="color: #2ecc71; font-size: 1.1rem; margin-bottom: 0.25rem;">9 - 10</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0;">Highly Reliable</p>
+                </div>
+                <div class="item" style="padding: 1rem; text-align: center; border-color: rgba(39, 174, 96, 0.3);">
+                    <h4 style="color: #27ae60; font-size: 1.1rem; margin-bottom: 0.25rem;">7 - 8</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0;">Mostly Reliable</p>
+                </div>
+                <div class="item" style="padding: 1rem; text-align: center; border-color: rgba(241, 196, 15, 0.3);">
+                    <h4 style="color: #f1c40f; font-size: 1.1rem; margin-bottom: 0.25rem;">5 - 6</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0;">Mixed</p>
+                </div>
+                <div class="item" style="padding: 1rem; text-align: center; border-color: rgba(230, 126, 34, 0.3);">
+                    <h4 style="color: #e67e22; font-size: 1.1rem; margin-bottom: 0.25rem;">3 - 4</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0;">Questionable</p>
+                </div>
+                <div class="item" style="padding: 1rem; text-align: center; border-color: rgba(231, 76, 60, 0.4);">
+                    <h4 style="color: #e74c3c; font-size: 1.1rem; margin-bottom: 0.25rem;">1 - 2</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0;">Unreliable</p>
+                </div>
+            </div>
+
+            <h2>🔌 REST API Endpoints</h2>
+            <pre class="architecture-diagram" style="font-family: var(--font-sans); font-size: 0.85rem; line-height: 1.7; margin-bottom: 3rem;">
+<strong style="color: #2ecc71;">GET</strong>    /api/rating/:domain  <span style="color: var(--text-secondary);">— Fetch reliability rating for a specific domain</span>
+<strong style="color: #2ecc71;">POST</strong>   /api/rating          <span style="color: var(--text-secondary);">— Submit a new score vote for a domain</span>
+<strong style="color: #2ecc71;">GET</strong>    /api/domains/top     <span style="color: var(--text-secondary);">— Retrieve highest-rated trusted sites</span>
+<strong style="color: #2ecc71;">GET</strong>    /api/domains/lowest  <span style="color: var(--text-secondary);">— Retrieve lowest-rated untrusted sites</span>
+<strong style="color: #2ecc71;">GET</strong>    /health              <span style="color: var(--text-secondary);">— Verify backend system status</span></pre>
+
+            <h2>📁 Project Structure</h2>
+            <pre class="architecture-diagram" style="margin-bottom: 3rem;">
+TrustLens/
+├── backend/
+│   ├── server.js          # Express.js backend server
+│   ├── package.json       # Node.js dependencies
+│   └── env.example        # Environment variables template
+├── extension/
+│   ├── manifest.json      # Chrome extension manifest
+│   ├── popup.html         # Extension popup interface
+│   ├── popup.js           # Extension popup code
+│   └── content.js         # Page injection content script
+└── README.md</pre>
+
+            <h2>🛠 Technology Stack</h2>
+            <div class="tech-stack-list">
+                <span class="badge">Chrome Extension API</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Express.js</span>
+                <span class="badge">JavaScript (ES6)</span>
+                <span class="badge">CSS3 Custom Overlays</span>
+                <span class="badge">REST API Design</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>All Rights Reserved.</span>
+            <span>2026</span>
+        </footer>
+    </div>
+
+    <script>
+        // Track cursor for ambient glow
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Scroll reveal animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
