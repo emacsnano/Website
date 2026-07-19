@@ -170,7 +170,9 @@ section {
   }
 }
 
-.about-section h2 {
+.about-section h2,
+.experience-section h2,
+.connect h2 {
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   font-size: 0.8rem;
