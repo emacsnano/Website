@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OASIS - OCBC AI Smart Inquiry System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="intro reveal">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1><strong>OASIS (OCBC AI Smart Inquiry System)</strong></h1>
+            <p class="projects-subtitle">Developed for the OCBC Innovation Challenge</p>
+            <a href="https://ocbc-ai-smart-inquiry-system.vercel.app" target="_blank" class="live-demo-btn">Visit Live
+                Site ↗</a>
+        </header>
+
+        <section class="project-details reveal">
+            <h2>Overview</h2>
+            <p>OASIS is an intelligent customer service solution designed for the OCBC Innovation Challenge. It
+                leverages artificial intelligence to provide instant, personalized support for banking inquiries,
+                seamlessly handles common customer queries, offers self-service routes, and intelligently escalates
+                complex issues to human agents with full context preservation.</p>
+
+            <h2>🎯 Project Objectives</h2>
+            <div class="projects-grid">
+                <div class="item">
+                    <h3>Reduce Operational Load</h3>
+                    <p>Minimize physical branch and call center traffic by automating routine inquiry responses.</p>
+                </div>
+                <div class="item">
+                    <h3>Enhance Satisfaction</h3>
+                    <p>Provide swift, personalized round-the-clock service via AI-powered assistance.</p>
+                </div>
+                <div class="item">
+                    <h3>Empower Bank Staff</h3>
+                    <p>Deliver summary analysis of customer interactions to human agents for accelerated resolution.</p>
+                </div>
+            </div>
+
+            <h2>✨ Key Features</h2>
+            <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="item">
+                    <h3>🤖 AI-Powered Chatbot</h3>
+                    <p>Instant answers to common banking queries (balance checks, account opening guides, lost card
+                        reporting) powered by natural language understanding using Google Gemini AI.</p>
+                </div>
+                <div class="item">
+                    <h3>🔄 Smart Escalation System</h3>
+                    <p>Automatic case transfer when queries exceed chatbot capabilities, preserving full conversation
+                        logs so customers never have to repeat themselves.</p>
+                </div>
+                <div class="item">
+                    <h3>📱 QR Code Case Transfer</h3>
+                    <p>Unique QR code generation per case. Physical branch staff scan the QR code to instantly access
+                        case history, summaries, and sentiment metrics on mobile.</p>
+                </div>
+                <div class="item">
+                    <h3>📊 Admin Dashboard</h3>
+                    <p>Real-time inquiry monitoring panel featuring sentiment analysis insights, automated case tracking
+                        status, and spreadsheet exporting features.</p>
+                </div>
+            </div>
+
+            <h2>🏗 System Architecture</h2>
+            <pre class="architecture-diagram">
+┌─────────────────┐
+│   Web Client    │
+│   (Next.js)     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  API Routes     │
+│  (Next.js API)  │
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    ▼         ▼
+┌────────┐ ┌──────────┐
+│ Gemini │ │   Neon   │
+│   AI   │ │ Database │
+└────────┘ └──────────┘</pre>
+
+            <h2>🛠 Technology Stack</h2>
+            <div class="tech-stack-list">
+                <span class="badge">Next.js 16 (App Router)</span>
+                <span class="badge">React 19</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Tailwind CSS</span>
+                <span class="badge">Google Gemini AI</span>
+                <span class="badge">Neon Database (PostgreSQL)</span>
+                <span class="badge">QRCode Engine</span>
+                <span class="badge">Sentiment Tracker</span>
+            </div>
+        </section>
+
+        <footer>
+            <span>All Rights Reserved.</span>
+            <span>2026</span>
+        </footer>
+    </div>
+
+    <script>
+        // Track cursor for ambient glow
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Scroll reveal animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
