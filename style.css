@@ -559,3 +559,52 @@ footer {
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
+/* Connect Section Styles */
+.connect-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.connect-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.connect-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  min-width: 140px;
+  color: var(--text-color) !important;
+  border-bottom: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.connect-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.connect-platform {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.connect-arrow {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.connect-card:hover .connect-arrow {
+  transform: translate(2px, -2px);
+  color: #ffffff;
+}
