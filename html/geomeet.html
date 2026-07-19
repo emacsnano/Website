@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoMeet - Location-Based Web3 Networking</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/projects.css">
 </head>
 
 <body>
     <div class="container">
         <header class="intro reveal">
-            <a href="index.html" class="back-link">← Back to Home</a>
+            <a href="../index.html" class="back-link">← Back to Home</a>
             <h1><strong>GeoMeet 🌍</strong></h1>
             <p class="projects-subtitle">Location-based Web3 networking app — developed for the NTU x Base Web 3 Hackathon</p>
         </header>
@@ -108,26 +109,7 @@ GeoMeet/
         </footer>
     </div>
 
-    <script>
-        // Track cursor for ambient glow
-        document.addEventListener('mousemove', (e) => {
-            document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
-            document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
-        });
-
-        // Scroll reveal animation observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.05
-        });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
+    <script src="../js/global.js" defer></script>
 </body>
 
 </html>
